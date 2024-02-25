@@ -1,3 +1,16 @@
+library(shiny)
+library(plotly)
+library(tidyverse)
+library(readxl)
+library(lubridate)
+library(shinydashboard)
+library(shinyWidgets)
+library(ggh4x)
+library(ggridges)
+library(fresh)
+library(shinydashboardPlus)
+library(shinyjs)
+library(fontawesome)
 
 server_visualizacion_data <- function(input, output, session) {
 
@@ -481,7 +494,7 @@ server_visualizacion_data <- function(input, output, session) {
 
       print(input$Especie_maduras_general)
 
-      generar_grafico_sx_ratio(plt_maduras_general, 'id_var', 'var', 'Madurez', 'dodge', input$axis_x_general_maduras, input$etiquetas_general_maduras, angle_x_general_maduros, c('Maduro','Inmaduro'), c('Mad','Inm'))
+      generar_grafico_sx_ratio(plt_maduras_general, 'id_var', 'var', 'Madurez',input$tipo_grafico_maduras, input$axis_x_general_maduras, input$etiquetas_general_maduras, angle_x_general_maduros, c('Maduro','Inmaduro'), c('Mad','Inm'))
 
     })
 

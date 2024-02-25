@@ -1,6 +1,19 @@
-# biomasa_densidad_tab.R
+library(shiny)
+library(plotly)
+library(tidyverse)
+library(readxl)
+library(lubridate)
+library(shinydashboard)
+library(shinyWidgets)
+library(ggh4x)
+library(ggridges)
+library(fresh)
+library(shinydashboardPlus)
+library(shinyjs)
+library(fontawesome)
 
 biomasaDensidadTab <- function() {
+
   tabItem(
     tabName = "biomasa_densidad",
     fluidRow(
@@ -39,7 +52,11 @@ biomasaDensidadTab <- function() {
         )
       )
     ),
-    checkboxInput(inputId = "etiquetas_line", label = "Mostrar valores", value = TRUE),
+
+    box(
+      width = 3,
+      checkboxInput(inputId = "etiquetas_line", label = p("Mostrar valores"), value = TRUE)
+    ),
     fluidRow(
       column(
         width = 12,
@@ -92,8 +109,12 @@ biomasaDensidadTab <- function() {
         )
       )
     ),
-
-    plotOutput("boxplot_densidad_biomasa", height = "600px")
+    fluidRow(
+      column(
+        width = 12,
+        plotOutput("boxplot_densidad_biomasa", height = "600px")
+      )
+    )
 
   )
 }
@@ -127,8 +148,13 @@ EstructuraTallasTab = function(){
         )
       )
     ),
+    fluidRow(
+      column(
+        width = 12,
+        plotOutput("plot_tallas_global", height = "350px")
+      )
+    ),
 
-    plotOutput("plot_tallas_global", height = "350px"),
 
     br(),
 
@@ -168,8 +194,13 @@ EstructuraTallasTab = function(){
         )
       )
     ),
+    fluidRow(
+      column(
+        width = 12,
+        plotOutput("plot_estructura_tallas", height = "1000px")
+      )
+    ),
 
-    plotOutput("plot_estructura_tallas", height = "700px"),
 
     br(),
 
@@ -206,8 +237,13 @@ EstructuraTallasTab = function(){
         )
       )
     ),
+    fluidRow(
+      column(
+        width = 12,
+        plotOutput("plot_sexo_tallas", height = "1000px")
+      )
+    ),
 
-    plotOutput("plot_sexo_tallas", height = "550px"),
 
     br(),
 
@@ -222,17 +258,26 @@ EstructuraTallasTab = function(){
           collapsible = TRUE,
           uiOutput('especie_talla_peso_ru')
         ),
+
+        box(
+          width = 3,
+          checkboxInput(inputId = "ecuacion_talla_peso", label = p("Mostrar Ecuación"), value = TRUE)
+        )
       )
     ),
-    checkboxInput(inputId = "ecuacion_talla_peso", label = "Mostrar Ecuación", value = TRUE),
+    fluidRow(
+      column(
+        width = 12,
+        plotOutput("plot_talla_peso_ru", height = "550px")
+      )
+    ),
 
-    plotOutput("plot_talla_peso_ru", height = "550px"),
 
     br(),
 
     fluidRow(
       column(
-        h5("Es neceario ingresar una talla", class = "box-title-red"),
+        h4("Es neceario ingresar una talla", class = "box-title-red"),
         width = 12,
         box(
           title = "",
@@ -266,9 +311,19 @@ EstructuraTallasTab = function(){
         )
       )
     ),
-    checkboxInput(inputId = "etiquetas_juveniles_tallas", label = "Mostrar valores", value = TRUE),
 
-    plotlyOutput("plot_juveniles_tiempo", height = "550px"),
+    box(
+      width = 3,
+      checkboxInput(inputId = "etiquetas_juveniles_tallas", label = p("Mostrar valores"), value = TRUE)
+    ),
+
+    fluidRow(
+      column(
+        width = 12,
+        plotlyOutput("plot_juveniles_tiempo", height = "550px")
+      )
+    ),
+
 
     br(),
 
@@ -282,10 +337,13 @@ EstructuraTallasTab = function(){
           solidHeader = TRUE,
           collapsible = TRUE,
           uiOutput('Especie_sex_maturity_ru')
+        ),
+        box(
+          width = 3,
+          checkboxInput(inputId = "ecuacion_madurez", label = p("Mostrar Ecuación"), value = TRUE)
         )
       )
     ),
-    checkboxInput(inputId = "ecuacion_madurez", label = "Mostrar Ecuación", value = TRUE),
 
     fluidRow(
       column(
@@ -294,7 +352,7 @@ EstructuraTallasTab = function(){
       ),
       column(
         width = 4,
-        p("Tener en consideración que la talla de madurez estimada es un valor preliminar.")
+        p("Tener en consideración que la talla de madurez estimada es un valor preliminar.", class = "talla-madurez")
       )
     )
   )
@@ -307,9 +365,9 @@ ReproductionTab <- function(){
     tabName = 'reproduccion',
 
     fluidRow(
-      h4("Aspectos reproductivos", class = "box-title"),
       column(
         width = 12,
+        h4("Aspectos reproductivos", class = "box-title"),
         box(
           title = "",
           width = 6,
@@ -341,18 +399,28 @@ ReproductionTab <- function(){
       )
     ),
 
-    checkboxInput(inputId = "etiquetas_sex_ratio", label = "Mostrar valores", value = TRUE),
+    box(
+      width = 3,
+    checkboxInput(inputId = "etiquetas_sex_ratio", label = p("Mostrar valores"), value = TRUE)
+    ),
 
-    plotOutput("plot_sexual_ratio", height = "550px"),
+    fluidRow(
+      column(
+        width = 12,
+        plotOutput("plot_sexual_ratio", height = "550px")
+      )
+    ),
+
 
     br(),
 
     fluidRow(
-      h4("Cangrejos", class = "box-title"),
-      br(),
-      h6('  Ovígeras', class = 'box-title-left'),
+
       column(
         width = 12,
+        h4("Cangrejos", class = "box-title"),
+        br(),
+        p('Ovígeras', class = 'box-title-left'),
         box(
           title = "",
           width = 6,
@@ -384,16 +452,25 @@ ReproductionTab <- function(){
       )
     ),
 
-    checkboxInput(inputId = "etiquetas_cangrejo_ovigeras", label = "Mostrar valores", value = TRUE),
+    box(
+      width = 3,
+    checkboxInput(inputId = "etiquetas_cangrejo_ovigeras", label = p("Mostrar valores"), value = TRUE)
+    ),
 
-    plotOutput("plot_cangrejo_ovigeras", height = "550px"),
+    fluidRow(
+      column(
+        width = 12,
+        plotOutput("plot_cangrejo_ovigeras", height = "550px")
+      )
+    ),
+
 
     br(),
 
     fluidRow(
-      h6('Parejas Reproductoras', class = 'box-title-left'),
       column(
         width = 12,
+        h4('Parejas Reproductoras', class = 'box-title-left'),
         box(
           title = "",
           width = 6,
@@ -415,17 +492,26 @@ ReproductionTab <- function(){
       )
     ),
 
-    checkboxInput(inputId = "etiquetas_cangrejo_reproductores", label = "Mostrar valores", value = TRUE),
+    box(
+      width = 3,
+    checkboxInput(inputId = "etiquetas_cangrejo_reproductores", label = p("Mostrar valores"), value = TRUE)
+    ),
 
-    plotOutput("plot_cangrejo_reproductores", height = "550px"),
+    fluidRow(
+      column(
+        width = 12,
+        plotOutput("plot_cangrejo_reproductores", height = "550px")
+      )
+    ),
+
 
     br(),
 
     fluidRow(
-      h4("Caracoles", class = "box-title"),
-      h6('Agregaciones de Reproductores', class = 'box-title-left'),
       column(
         width = 12,
+        h4("Caracoles", class = "box-title"),
+        p('Agregaciones de Reproductores', class = 'box-title-left'),
         box(
           title = "",
           width = 6,
@@ -447,16 +533,25 @@ ReproductionTab <- function(){
       )
     ),
 
-    checkboxInput(inputId = "etiquetas_caracole_reproductor", label = "Mostrar valores", value = TRUE),
+    box(
+      width = 3,
+    checkboxInput(inputId = "etiquetas_caracole_reproductor", label = p("Mostrar valores"), value = TRUE)
+    ),
 
-    plotOutput("plot_caracol_reproductor", height = "550px"),
+    fluidRow(
+      column(
+        width = 12,
+        plotOutput("plot_caracol_reproductor", height = "550px")
+      )
+    ),
+
 
     br(),
 
     fluidRow(
-      h4("General", class = "box-title"),
       column(
         width = 12,
+        h4("General", class = "box-title"),
         box(
           title = "",
           width = 6,
@@ -488,9 +583,17 @@ ReproductionTab <- function(){
       )
     ),
 
-    checkboxInput(inputId = "etiquetas_general_maduras", label = "Mostrar valores", value = TRUE),
+    box(
+      width = 3,
+    checkboxInput(inputId = "etiquetas_general_maduras", label = p("Mostrar valores"), value = TRUE)
+    ),
 
-    plotOutput("plot_general_maduras", height = "550px")
+    fluidRow(
+      column(
+        width = 12,
+        plotOutput("plot_general_maduras", height = "550px")
+      )
+    )
     )
 }
 
@@ -502,9 +605,9 @@ CefalpodosTab <- function(){
     tabName = 'pulpos',
 
     fluidRow(
-      h4("Estructura de Tamaños", class = "box-title"),
       column(
         width = 12,
+        h4("Estructura de Tamaños", class = "box-title"),
         box(
           title = "",
           width = 6,
@@ -534,20 +637,25 @@ CefalpodosTab <- function(){
                          selected = "dodge")
         )
       ),
-
-      checkboxInput(inputId = "etiquetas_cefalopodos_size", label = "Mostrar valores", value = TRUE),
-
-      plotOutput("plot_pulpo_size", height = "550px")
-
+      box(
+        width = 3,
+      checkboxInput(inputId = "etiquetas_cefalopodos_size", label = p("Mostrar valores"), value = TRUE)
+      ),
+      fluidRow(
+        column(
+          width = 12,
+          plotOutput("plot_pulpo_size", height = "550px")
+        )
+      )
     ),
 
     br(),
 
     fluidRow(
-      h4("Aspectos Reproductivos", class = "box-title"),
-      h6('Hembras con Huevos', class = 'box-title-left'),
       column(
         width = 12,
+        h4("Aspectos Reproductivos", class = "box-title"),
+        p('Hembras con Huevos', class = 'box-title-left'),
         box(
           title = "",
           width = 6,
@@ -568,18 +676,25 @@ CefalpodosTab <- function(){
         )
       ),
 
-      checkboxInput(inputId = "etiquetas_cefalopodo_reproductores", label = "Mostrar valores", value = TRUE),
+      box(
+        width = 3,
+      checkboxInput(inputId = "etiquetas_cefalopodo_reproductores", label = p("Mostrar valores"), value = TRUE)
+      ),
 
-      plotOutput("plot_cefalopodos_reproductores", height = "550px")
-
+      fluidRow(
+        column(
+          width = 12,
+          plotOutput("plot_cefalopodos_reproductores", height = "550px")
+        )
+      )
     ),
 
     br(),
 
     fluidRow(
-      # h6('Hembras con Huevos', class = 'box-title-left'),
       column(
         width = 12,
+        p('Hembras con Huevos', class = 'p2'),
         box(
           title = "",
           width = 6,
@@ -610,10 +725,17 @@ CefalpodosTab <- function(){
         )
       ),
 
-      checkboxInput(inputId = "etiquetas_pulpo_enhuevadera", label = "Mostrar valores", value = TRUE),
+      box(
+        width = 3,
+        checkboxInput(inputId = "etiquetas_pulpo_enhuevadera", label = p("Mostrar valores"), value = TRUE)
+        ),
 
-      plotOutput("plot_pulpo_enhuevadera", height = "550px")
-
+      fluidRow(
+        column(
+          width = 12,
+          plotOutput("plot_pulpo_enhuevadera", height = "550px")
+        )
+      )
     )
   )
 }
@@ -650,7 +772,12 @@ MapasTab <- function(){
       )
     ),
 
-    plotlyOutput("plot_mapa", height = "650px", width = "100%")
+    fluidRow(
+      column(
+        width = 12,
+        plotlyOutput("plot_mapa", height = "650px", width = "100%")
+      )
+    )
 
   )
 

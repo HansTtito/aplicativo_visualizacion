@@ -5,7 +5,7 @@ account: hans-kevin-ttito-sanchez
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 11308981
-bundleId:
+bundleId: 8296096
 url: https://hans-kevin-ttito-sanchez.shinyapps.io/aplicativo_visualizacion/
 version: 1
 asMultiple: FALSE

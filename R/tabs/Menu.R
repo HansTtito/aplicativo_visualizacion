@@ -1,3 +1,17 @@
+library(shiny)
+library(plotly)
+library(tidyverse)
+library(readxl)
+library(lubridate)
+library(shinydashboard)
+library(shinyWidgets)
+library(ggh4x)
+library(ggridges)
+library(fresh)
+library(shinydashboardPlus)
+library(shinyjs)
+library(fontawesome)
+
 CargaDescargaMenu <- function(){
 
   menuItem(
