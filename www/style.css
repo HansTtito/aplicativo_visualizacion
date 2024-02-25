@@ -1,0 +1,98 @@
+body {
+  background-image: url('https://github.com/HansTtito/randomThings/blob/main/img/fondo_tnc.png?raw=true');
+  background-size: cover; /* Usar 'cover' para ajustar la imagen al tamaño del contenedor */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: rgba(0, 0, 0, 0.5); /* '0.5' es la opacidad, ajusta según tus preferencias */
+}
+
+
+/* Estilos para el contenido de texto */
+.title-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Agregar este estilo para separar los logotipos */
+  color: black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  ont-weight: bold;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+
+}
+
+/* Estilos para el texto justificado */
+.text-justificado {
+  background-color: rgba(255, 255, 255, 0.7);
+  text-align: justify;
+  color: black;
+  padding: 20px;
+}
+
+.text-center {
+  background-color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  color: black;
+  padding: 20px;
+}
+
+.title-logo img {
+  max-height: 50px;
+  margin-right: 20px;
+}
+
+.title-logo img:last-child {
+    margin-left: auto; /* Mover el segundo logotipo a la derecha */
+    margin-right: 20px; /* Espacio entre los logotipos */
+}
+
+.menu {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.menu img {
+
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 20%;
+  display: block;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.7);
+
+}
+
+.menu:hover {
+  width: 300px;
+  height: 300px;
+}
+
+.menu:hover .option {
+  opacity: 1;
+  transform: translate(75px) rotate(360deg);
+}
+
+.option {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  color: #262433;
+  border-radius: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  opacity: 0;
+  transform: translate(75px) rotate(0deg);
+  transition: 0.5s;
+}
+

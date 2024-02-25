@@ -1,0 +1,35 @@
+---
+title: ""
+runtime: shiny
+output:
+  html_document:
+    css: www/style.css
+---
+
+<br><br>
+
+```{=html}
+
+<!-- <div class="text-center"> -->
+<!--   <h1>Acerca de The Nature Conservancy (TNC)</h1> -->
+<!-- </div> -->
+
+```
+
+
+:::text-justificado
+<!-- The Nature Conservancy (TNC) es una organización sin fines de lucro global dedicada a la conservación de la biodiversidad y la protección de los ecosistemas más valiosos del mundo. Fundada en 1951, TNC ha desempeñado un papel fundamental en la preservación de hábitats naturales únicos y en la promoción de un enfoque sostenible para la relación entre el ser humano y el medio ambiente. -->
+
+<!-- Con operaciones en más de 70 países, The Nature Conservancy trabaja en colaboración con comunidades locales, gobiernos, científicos y otros actores clave para abordar algunos de los desafíos más apremiantes que enfrenta nuestro planeta. La organización se centra en áreas clave como la conservación de tierras y agua, la restauración de ecosistemas degradados, la mitigación del cambio climático y la protección de la vida silvestre en peligro. -->
+
+<!-- Una de las características distintivas de TNC es su enfoque en la ciencia y la colaboración estratégica. La organización utiliza la investigación científica para guiar sus decisiones y acciones, y trabaja con diversas partes interesadas para encontrar soluciones que beneficien tanto a la naturaleza como a las comunidades humanas. A través de la compra y administración de tierras, así como la implementación de prácticas de manejo sostenible, TNC ha logrado proteger millones de acres de hábitats terrestres y acuáticos. -->
+
+<!-- Además de sus esfuerzos de conservación, The Nature Conservancy también despliega iniciativas educativas y de sensibilización para fomentar la comprensión pública de los desafíos ambientales y la importancia de la protección de la naturaleza. La organización ha demostrado ser un catalizador de cambio positivo, liderando la manera en que abordamos la interconexión entre la vida silvestre, los recursos naturales y el bienestar humano. -->
+
+<!-- En un mundo en constante evolución, The Nature Conservancy continúa siendo un defensor inquebrantable de la belleza y diversidad de la Tierra. Su enfoque basado en la evidencia, su alcance global y su compromiso con la sostenibilidad hacen de TNC una fuerza crucial en la lucha por un futuro en el que las generaciones venideras puedan disfrutar de la riqueza de nuestro planeta. -->
+
+<!-- Desde la protección de costas y selvas hasta la promoción de prácticas agrícolas sostenibles, The Nature Conservancy sigue siendo una voz líder en la conversación sobre la conservación y el cuidado del entorno natural que compartimos. -->
+
+:::
+
+</br></br></br>

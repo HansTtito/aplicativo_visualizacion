@@ -1,0 +1,66 @@
+---
+title: ""
+runtime: shiny
+output:
+  html_document:
+    css: www/style.css
+---
+
+```{=html}
+
+<style type="text/css">
+
+.main-container {
+  max-width: 100%;
+}
+
+</style>
+
+<div class="title-logo">
+  <img src="www/TNCLogoPrimary_RGB.png" alt="Logo">
+  <h1>Visualización de Datos</h1>
+</div>
+
+```
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+
+library(shiny)
+library(plotly)
+library(tidyverse)
+library(readxl)
+library(lubridate)
+library(shinydashboard)
+library(shinyWidgets)
+library(ggh4x)
+library(ggridges)
+library(fresh)
+library(shinydashboardPlus)
+library(shinyjs)
+library(fontawesome)
+
+```
+
+```{r, echo=FALSE}
+
+source(file = 'R/funciones_visualizacion.R')
+source(file = "R/ui_visualizacion_data.R")
+source(file = "R/server_visualizacion_data.R")
+source(file = "R/general_functions.R")
+
+shinyApp(ui = ui_visualizacion_data, server = server_visualizacion_data,
+         options = list(
+    width = "100%", height = 6000
+  )
+)
+
+```
+
+
+
+
+
+
+

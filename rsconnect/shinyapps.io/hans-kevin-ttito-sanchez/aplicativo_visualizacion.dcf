@@ -1,0 +1,12 @@
+name: aplicativo_visualizacion
+title: aplicativo_visualizacion
+username: hans-kevin-ttito-sanchez
+account: hans-kevin-ttito-sanchez
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 11308981
+bundleId:
+url: https://hans-kevin-ttito-sanchez.shinyapps.io/aplicativo_visualizacion/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
